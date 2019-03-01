@@ -104,7 +104,21 @@ app.get('/api/contacts/recent/', cors(), function (req, res) {
  * Copyright - World Food Programmes - Digital Transformation
  */
   
-app.get('/api/contacts/view/:vid', cors(), function (req, res) {
+app.get('/api/contacts/favorite/:user/', cors(), function (req, res) {   
+  const Query = "SELECT * FROM wb_contacts WHERE email LIKE ? AND fans LIKE ?";
+  connection.query(Query, ['%' + req.query.search + '%', '%' + req.params.user + '%'], function (error, results, fields){ 
+   res.send(executeResults(error, results, fields));  
+  });
+});
+
+/*
+ * This code is developed to demonstrate the use of ReactJS and ReactNatice
+ * The deelopment also allows me to demonstrate my capabilities using the framework
+ * Following create-react-app methods, the file structure is made from scratch
+ * Copyright - World Food Programmes - Digital Transformation
+ */
+  
+app.get('/api/contacts/view/:vid/', cors(), function (req, res) {
   const Query = "SELECT * FROM wb_contacts WHERE vid LIKE ?";
   connection.query(Query, [req.params.vid], function (error, results, fields){ 
    res.send(executeResults(error, results[0], fields));  
@@ -118,7 +132,7 @@ app.get('/api/contacts/view/:vid', cors(), function (req, res) {
  * Copyright - World Food Programmes - Digital Transformation
  */
   
-app.get('/api/contacts/like/:vid/:user', cors(), function (req, res) {  
+app.get('/api/contacts/like/:vid/:user/', cors(), function (req, res) {  
   const Query = "UPDATE wb_contacts SET likes = likes + ?, fans = CONCAT(fans, ?, ?) WHERE vid LIKE ?";
   connection.query(Query, [1, req.params.user, '|', req.params.vid], function (error, results, fields){ 
     res.send({ success: true, message : 'Contact was added as favorite'}); 
@@ -132,7 +146,7 @@ app.get('/api/contacts/like/:vid/:user', cors(), function (req, res) {
  * Copyright - World Food Programmes - Digital Transformation
  */
   
-app.get('/api/contacts/delete/:vid', cors(), function (req, res) {
+app.get('/api/contacts/delete/:vid/', cors(), function (req, res) {
   const Query = "DELETE FROM wb_contacts WHERE vid = ?";
   connection.query(Query, [req.params.vid], function (error, results, fields){  
    res.send({ success: true, message : 'Contact successfully deleted'});
@@ -146,7 +160,7 @@ app.get('/api/contacts/delete/:vid', cors(), function (req, res) {
  * Copyright - World Food Programmes - Digital Transformation
  */
   
-app.get('/api/contacts/insert', cors(), function (req, res) {
+app.get('/api/contacts/insert/', cors(), function (req, res) {
  const Query = "INSERT INTO wb_contacts SET ?";
  connection.query(Query, req.query, function (error, results, fields){  
   if(req.query.email){res.send({ success: true, message : 'Your contact ' + req.query.email + ' was successfully added'});}
@@ -160,7 +174,7 @@ app.get('/api/contacts/insert', cors(), function (req, res) {
  * Copyright - World Food Programmes - Digital Transformation
  */
   
-app.get('/api/contacts/edit/:vid', cors(), function (req, res) {
+app.get('/api/contacts/edit/:vid/', cors(), function (req, res) {
   const Query = "UPDATE wb_contacts SET ? WHERE vid LIKE ?";
   connection.query(Query, [req.query, req.query.vid], function (error, results, fields){  
    if(req.query.email){res.send({ success: true, message : 'Your contact ' + req.query.email + ' was successfully Updated'});}
