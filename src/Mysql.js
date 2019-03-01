@@ -12,6 +12,7 @@
 */
 
 var os = require("os");
+const favicon = require('express-favicon');
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
@@ -36,6 +37,15 @@ const app = express();
 const hostname = os.hostname();
 const port = process.env.PORT || 5000;
 connection.connect();
+
+/*
+ * This code is developed to demonstrate the use of ReactJS and ReactNatice
+ * The deelopment also allows me to demonstrate my capabilities using the framework
+ * Following create-react-app methods, the file structure is made from scratch
+ * Copyright - World Food Programmes - Digital Transformation
+ */
+
+app.use(favicon(__dirname + '/wbuddy.ico'));
 
 /*
  * This code is developed to demonstrate the use of ReactJS and ReactNatice
