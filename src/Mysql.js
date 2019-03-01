@@ -45,7 +45,7 @@ connection.connect();
  * Copyright - World Food Programmes - Digital Transformation
  */
 
-app.use(favicon(__dirname + '/wbuddy.ico'));
+app.use(favicon(__dirname + '/favicon.ico'));
 
 /*
  * This code is developed to demonstrate the use of ReactJS and ReactNatice
