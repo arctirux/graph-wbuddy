@@ -55,7 +55,7 @@ app.use(favicon(__dirname + '/favicon.ico'));
  */
 
 app.get('/file/apk/', cors(), function (req, res) {   
-  res.download("app.apk");
+  res.download("file/app.apk");
 });
 
 /*
@@ -66,7 +66,7 @@ app.get('/file/apk/', cors(), function (req, res) {
  */
 
 app.get('/file/ipa/', cors(), function (req, res) {   
-  res.download("app.ipa");
+  res.download("file/app.ipa");
 });
 
 /*
