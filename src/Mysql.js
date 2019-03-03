@@ -133,6 +133,20 @@ app.get('/api/contacts/view/:vid/', cors(), function (req, res) {
  * Copyright - World Food Programmes - Digital Transformation
  */
   
+app.get('/api/login/:username/:password/', cors(), function (req, res) {
+  const Query = "SELECT * FROM wb_accounts WHERE username LIKE ? AND password LIKE ?";
+  connection.query(Query, [req.params.username, req.params.password], function (error, results, fields){ 
+   res.send(executeResults(error, results ? results[0] : {}, fields));  
+  });
+});
+
+/*
+ * This code is developed to demonstrate the use of ReactJS and ReactNatice
+ * The deelopment also allows me to demonstrate my capabilities using the framework
+ * Following create-react-app methods, the file structure is made from scratch
+ * Copyright - World Food Programmes - Digital Transformation
+ */
+  
 app.get('/api/contacts/like/:vid/:user/', cors(), function (req, res) {  
   const Query = "UPDATE wb_contacts SET likes = likes + ?, fans = CONCAT(fans, ?, ?) WHERE vid LIKE ?";
   connection.query(Query, [1, req.params.user, '|', req.params.vid], function (error, results, fields){ 
