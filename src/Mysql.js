@@ -136,7 +136,7 @@ app.get('/api/contacts/view/:vid/', cors(), function (req, res) {
 app.get('/api/login/:username/:password/', cors(), function (req, res) {
   const Query = "SELECT * FROM wb_accounts WHERE username LIKE ? AND password LIKE ?";
   connection.query(Query, [req.params.username, req.params.password], function (error, results, fields){ 
-   res.send(executeResults(error, results ? results[0] : {}, fields));  
+   res.send(executeResults(error, results ? results[0] : results, fields));  
   });
 });
 
