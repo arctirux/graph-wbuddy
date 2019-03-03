@@ -12,6 +12,7 @@
 */
 
 var os = require("os");
+var md5 = require('md5');
 const favicon = require('express-favicon');
 const express = require('express');
 const cors = require('cors');
