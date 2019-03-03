@@ -175,7 +175,7 @@ app.get('/api/contacts/insert/', cors(), function (req, res) {
  */
   
 app.get('/api/register/', cors(), function (req, res) {
-  const Query = "INSERT INTO wb_accounts SET ? WHERE username NOT LIKE 1";
+  const Query = "REPLACE INTO wb_accounts SET ?";
   connection.query(Query, req.query, function (error, results, fields){  
    if(req.query.username){res.send({ success: true, message : 'Your account registration was successfull, you can now login.'});}
   });
