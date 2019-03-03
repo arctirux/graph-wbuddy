@@ -174,6 +174,20 @@ app.get('/api/contacts/insert/', cors(), function (req, res) {
  * Copyright - World Food Programmes - Digital Transformation
  */
   
+app.get('/api/register/', cors(), function (req, res) {
+  const Query = "INSERT INTO wb_accounts SET ?";
+  connection.query(Query, req.query, function (error, results, fields){  
+   if(req.query.email){res.send({ success: true, message : 'Your account registration was successfull, you can now login.'});}
+  });
+ });
+
+/*
+ * This code is developed to demonstrate the use of ReactJS and ReactNatice
+ * The deelopment also allows me to demonstrate my capabilities using the framework
+ * Following create-react-app methods, the file structure is made from scratch
+ * Copyright - World Food Programmes - Digital Transformation
+ */
+  
 app.get('/api/contacts/edit/:vid/', cors(), function (req, res) {
   const Query = "UPDATE wb_contacts SET ? WHERE vid LIKE ?";
   connection.query(Query, [req.query, req.query.vid], function (error, results, fields){  
