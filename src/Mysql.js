@@ -93,7 +93,7 @@ app.get('/api/contacts/', cors(), function (req, res) {
   
 app.get('/api/contacts/recent/', cors(), function (req, res) {   
   const Query = "SELECT * FROM wb_contacts WHERE email LIKE ? AND FROM_UNIXTIME(timestamp) > DATE_SUB(CURDATE(), INTERVAL ? DAY)";
-  connection.query(Query, ['%' + req.query.search + '%', 7], function (error, results, fields){ 
+  connection.query(Query, ['%' + req.query.search + '%', 30], function (error, results, fields){ 
    res.send(executeResults(error, results, fields));  
   });
 });
