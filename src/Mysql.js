@@ -56,7 +56,7 @@ app.use(favicon(__dirname + '/favicon.ico'));
  */
 
 app.get('/file/apk/', cors(), function (req, res) {   
-  res.download("file/wbuddy.apk");
+  res.download("file/wbuddy.apk");      
 });
 
 /*
@@ -67,7 +67,8 @@ app.get('/file/apk/', cors(), function (req, res) {
  */
 
 app.get('/file/ipa/', cors(), function (req, res) {   
-  res.download("file/wbuddy.ipa");
+  //res.download("file/wbuddy.ipa");
+  res.redirect('https://expo.io/@arctirux/app-wbuddy');
 });
 
 /*
