@@ -9,6 +9,11 @@
     "build": "node index.js",
     "eject": "node index.js"
   },
+  "engines": {
+    "npm": "6.7.0",
+    "yarn": "1.13.0",
+    "node": "11.10.0" 
+   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arctirux/graph-wbuddy.git"
