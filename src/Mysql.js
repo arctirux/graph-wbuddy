@@ -139,7 +139,7 @@ app.get('/api/login/:username/:password/', cors(), function (req, res) {
   var field = rx.test(req.params.username) ? 'email' : 'username';   
   const Query = "SELECT * FROM wb_accounts WHERE " + field + " LIKE ? AND password LIKE ?";
   connection.query(Query, [req.params.username, req.params.password], function (error, results, fields){    
-   res.send(executeResults(error, (results && results[0] ? results[0] : {error: 'xx', message: 'Username or Password Incorect, Please try again.'}), fields));  
+   res.send(executeResults(error, (results && results[0] ? results[0] : {error: true, message: 'Username or Password Incorect, Please try again.'}), fields));  
   });
 });
 
