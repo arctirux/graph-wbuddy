@@ -4,9 +4,9 @@
   "description": "API Data for Wbuddy App",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js",
+    "test": "yarn install",
     "start": "node index.js",
-    "build": "node index.js",
+    "build": "yarn install",
     "eject": "node index.js"
   },
   "engines": {
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/arctirux/graph-wbuddy.git"
   },
-  "keywords": [
+  "keywords": [  
     "wbuddy",
     "graph-wbuddy",
     "app-wbuddy"
